@@ -4,14 +4,14 @@ const port = 3000
 
 const bd = require("./infra/bd.js")
 
-const usuario = require("./controllers/usuario-controller.js")
-const tarefa = require("./controllers/tarefa-controller.js")
+const cliente= require("./controllers/cliente-controller.js")
+
 
 
 app.use(express.json())
 
-usuario(app, bd)
-tarefa(app, bd)
+cliente(app, bd)
+
 
 
 app.listen(port, () => {

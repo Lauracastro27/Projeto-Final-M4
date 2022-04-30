@@ -1,12 +1,16 @@
 
 var id = 0
 
-class Usuario {
-    constructor(nome, email, senha) {
+class Cliente {
+    constructor(nome,idade,tel, email, senha,endereco,favoritos) {
         this.id = id++
         this.nome = nome
+        this.idade = idade
+        this.tel = tel
         this.email = email
         this.senha = this.verificarSenha(senha)
+        this.endereco = endereco 
+        this.favoritos = favoritos
     }
 
     verificarSenha(senha) {
@@ -19,4 +23,4 @@ class Usuario {
 
 }
 
-module.exports = Usuario 
+module.exports = Cliente 

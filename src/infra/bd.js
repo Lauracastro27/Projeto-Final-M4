@@ -1,6 +1,6 @@
 const bd = {
-    "usuario": [],
-    "tarefa": [],
+    "cliente": [],
+    
 }
 
 module.exports = bd;
