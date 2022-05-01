@@ -5,7 +5,7 @@ const port = 3000
 const bd = require("./infra/bd.js")
 
 const usuario = require("./controllers/usuario-controller.js")
-const tarefa = require("./controllers/tarefa-controller.js")
+const produtos = require("./controllers/produtos-controllers")
 
 
 app.use(express.json())
