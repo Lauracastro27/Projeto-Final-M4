@@ -1,6 +1,4 @@
-
 var id = 0
-
 class Usuario {
     constructor(nome, email, senha) {
         this.id = id++

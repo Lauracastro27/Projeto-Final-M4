@@ -1,18 +1,16 @@
+//Não editar
 const express = require("express") 
+const sqlite3 = require("sqlite3") 
 const app = express()
 const port = 3000
 
-const bd = require("./infra/bd.js")
+const bd = require("./infra/sqlite-db")
 
 const usuario = require("./controllers/usuario-controller.js")
-const tarefa = require("./controllers/tarefa-controller.js")
-
 
 app.use(express.json())
 
 usuario(app, bd)
-tarefa(app, bd)
-
 
 app.listen(port, () => {
     console.log("Servidor rodando na porta " + port)
