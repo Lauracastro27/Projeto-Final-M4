@@ -1,10 +1,10 @@
-const bd = require('')
+const bd = require('../infra/sqlite-db')
 const ProdutosDAO = require('../DAO/produtos-dao')
 const Produtos = require('../models/produtos-models')
 
-const produtos = (app,bdSqlite)=>{
+const produtos = (app, bd)=>{
 
-const InstProdutoDAO = new ProdutosDAO(bdSqlite)
+const InstProdutoDAO = new ProdutosDAO(bd)
 
 //mostrat todos os produtos registrados no bd
       app.get('/produtos',(req, res) => {
@@ -25,77 +25,39 @@ const InstProdutoDAO = new ProdutosDAO(bdSqlite)
             const body = req.body
             const NovoProduto = new Produtos(body.marca, body.nome, body.qtd,
             body.ingredientes, body.preco, body.validade)
-            InstProdutoDAO.inserirNovoProduto(NovoProduto)
-            .then((resposta) =>{
-                res.status(200).json(resposta)
-            }).catch((error)=>{
-                res.json(error)
-            })
-
-        })
-
-        //mostrar o produto utilizando o nome que foi passado no paramentro
-        app.get('/produtos/:nome', (req, res) => {
-            const nome = req.params.nome
-            res.json({
-                "mensagem": " por parametro",
-                "parametro": nome,
-
-            })
-        })
-        //mostrar somente o produto que foi solicitado no parametro utilizando a marca
-        app.get('/produtos/:marca', (req, res) => {
-            const marca = req.params.marca
-            for (let i = 0; i <= bdSqliteSqlite.length; i++) {
-                if (bdSqliteSqlite[i].marca == marca) {
-                    return `o email encontrado e ${marca}`
+            const data = async() => {
+                try {
+                  const Produtos = await InstProdutoDAO.inserirNovoProduto(NovoProduto)
+                  res.send(Produtos)
+                }catch{
+                    res.send("erro")
                 }
             }
+            data()
         })
 
-        //atualizar um produto a partir do nome solicitado no paramentro
-        app.put('/produtos/:nome', (req, res) => {
-        const nome = req.params.nome
-        const body = req.body
-        const indexProduto = bdSqliteSqlite.produtos.findIndex((produtos => produtos.nome === nome))
-
-        try {
-            if (indexProduto > -1) {
-                const produtoAntigo = bdSqliteSqlite.produtos[indexProduto]
-                const produtoAtualizado = new Produtos(
-                    body.nome || produtoAntigo.nome,
-                    body.marca || produtoAntigo.marca,
-                    body.qtd || produtoAntigo.qtd,
-                    body.ingredientes || produtoAntigo.ingredientes,
-                    body.preco || produtoAntigo.preco,
-                    body.validade || produtoAntigo.validade,
-                    produtoAntigo.id,
-                )
-                const DadosProdutoAtualizado = bdSqliteSqlite.produtos.splice(indexProduto, 1, produtoAtualizado)
-                res.json({"atualizado": DadosProdutoAtualizado,})
-            } else {
-                res.json({"mensagem": `Usuário com email "${nome}" não existe`,})
+        //atualizar um produto a partir do ID solicitado no paramentro
+        app.put('/produtos/:id', (req, res) => {
+            const body = req.body;
+            const id = req.params.id
+            const parametros = [body.marca, body.nome, body.ingredientes, body.qtd, body.preco, body.validade, id]
+            const data = async() => {
+                try {
+                    const produtos =  await InstProdutoDAO.atualizarProdutoPeloID(parametros)
+                    res.send(produtos)
+                }catch(err) {
+                    res.send(err)
+                }
+               
             }
-        } catch (error) {
-            res.json({ "mensagem": error.message,})
-        }
-    })
-
+            data()    
+        });   
     //deletar um produtor a partir do nome passado no paramentro
         app.delete('/produtos/:nome', (req, res)=> {
-                const nome = req.params.nome
-                const indexProduto = bdSqliteSqlite.produtos.findIndex((produtos=>produtos.nome=== nome))
-        
-                if(indexProduto > -1){
-                    const produtoDeletado = bdSqliteSqlite.produtos.splice(indexProduto, 1)
-                    res.json({ "deletado": produtoDeletado, })
-                } else {
-                    res.json({
-                     "mensagem": `O produto com o "${nome}" não existe`,
-                    })
-                }
-        })
+      
+    })
         
     }
+
 
 module.exports = produtos;

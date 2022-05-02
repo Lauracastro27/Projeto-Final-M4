@@ -1,4 +1,4 @@
-const bd = require("../infra/bd")
+//const bd = require("")
 const Usuario = require("../models/usuario-model.js")
 
 const usuario = (app) => {

@@ -1,4 +1,3 @@
-const bd = require("")
 
 class ProdutosDAO {
     constructor(bd){
@@ -19,12 +18,13 @@ class ProdutosDAO {
 
     inserirNovoProduto(novoProduto){
         return new Promise((resolve, reject) => {
-            this.bd.run(`INSERT INTO PRODUTOS (MARCA, NOME, QTD, PRECO, INGREDIENTES, VALIDADES) VALUES (?,?,?,?,?,?)`, 
+            this.bd.run(`INSERT INTO PRODUTOS (NOME, MARCA, INGREDIENTES, QTD, PRECO, VALIDADE) VALUES (?,?,?,?,?,?)`, 
             [novoProduto.marca, novoProduto.nome, novoProduto.qtd, novoProduto.preco,
              novoProduto.ingredientes, novoProduto.validade],
                  (error)=>{
                 if(error){
                     reject(error)
+                    console.log(error);
                 }else{
                    resolve("DEU CERTO INSERIR")
                 }
@@ -32,22 +32,23 @@ class ProdutosDAO {
         })
     }
     deletarProduto(produtoAntigo){
-       return new Promise((resolve, reject )=>{
-            const nome = req.params.nome
-            const indexProduto = bdSqliteSqlite.produtos.findIndex((produtos=>produtos.nome=== nome))
-    
-            if(indexProduto > -1){
-                const produtoDeletado = bdSqliteSqlite.produtos.splice(indexProduto, 1)
-                res.json({ "deletado": produtoDeletado, })
-            } else {
-                res.json({
-                 "mensagem": `O produto com o "${nome}" não existe`,
-                })
+     
+       }
+       atualizarProdutoPeloID(parametros){
+        return new Promise((resolve, reject) =>{
+            this.bd.run(`UPDATE PRODUTOS SET MARCA = ?, NOME = ? , INGREDIENTES = ?, QTD = ?, PRECO = ?, VALIDADE = ? WHERE id = ?`, parametros ,(error)=>{
+            if(error){
+                console.log(error)
+               reject(error);
+            }else{
+               resolve("ALTERADO COM SUCESSO!")
             }
-     })
-    
-    }
-
+        })
+    })
+ }
 }
+    
+
+
 
 module.exports = ProdutosDAO;
