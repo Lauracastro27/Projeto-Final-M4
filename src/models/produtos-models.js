@@ -2,7 +2,7 @@
 
 class Produtos{
     constructor(marca, nome, qtd, preco, ingredientes, validade){
-     
+        
         this.nome = nome;
         this.marca = marca;
         this.ingredientes = ingredientes;
