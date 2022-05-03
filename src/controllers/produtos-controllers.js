@@ -23,8 +23,8 @@ const InstProdutoDAO = new ProdutosDAO(bd)
       app.post('/produtos', (req, res) => {
         //pegar body e inserir as informações
             const body = req.body
-            const NovoProduto = new Produtos(body.marca, body.nome, body.qtd,
-            body.ingredientes, body.preco, body.validade)
+            const NovoProduto = new Produtos(body.nome, body.marca, body.ingredientes,
+            body.qtd, body.preco, body.validade)
             const data = async() => {
                 try {
                   const Produtos = await InstProdutoDAO.inserirNovoProduto(NovoProduto)
@@ -40,7 +40,7 @@ const InstProdutoDAO = new ProdutosDAO(bd)
         app.put('/produtos/:id', (req, res) => {
             const body = req.body;
             const id = req.params.id
-            const parametros = [body.marca, body.nome, body.ingredientes, body.qtd, body.preco, body.validade, id]
+            const parametros = [body.nome, body.marca, body.ingredientes, body.qtd, body.preco, body.validade, id]
             const data = async() => {
                 try {
                     const produtos =  await InstProdutoDAO.atualizarProdutoPeloID(parametros)
@@ -52,9 +52,20 @@ const InstProdutoDAO = new ProdutosDAO(bd)
             }
             data()    
         });   
-    //deletar um produtor a partir do nome passado no paramentro
-        app.delete('/produtos/:nome', (req, res)=> {
-      
+    //deletar um produtor a partir do ID passado no paramentro
+        app.delete('/produtos/:id', (req, res)=> {
+            const data = async() => {
+                try {
+                    const produtos =  await InstProdutoDAO.deletarProduto(req.params.id)
+                    res.send(produtos)
+                }catch(err) {
+                    res.send(err)
+                }
+               
+            }
+            data()
+            
+        
     })
         
     }

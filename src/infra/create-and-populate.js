@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS "PRODUTOS" (
   const ADD_PRODUTOS_DATA = `
 INSERT INTO PRODUTOS (ID, MARCA, NOME, INGREDIENTES, QTD, PRECO, VALIDADE)
 VALUES 
-   ('1', 'coca-cola', 'coca-cola250ml', 'agua,açucar,gás', '5', '5', '18/05/2023')
 `;
 function populaTabelaPrd() {
     db.run(ADD_PRODUTOS_DATA, (error)=> {

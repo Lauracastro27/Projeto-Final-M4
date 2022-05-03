@@ -32,11 +32,19 @@ class ProdutosDAO {
         })
     }
     deletarProduto(produtoAntigo){
-     
+        return new Promise((resolve, reject) =>{
+            this.bd.run(`DELETE FROM PRODUTOS WHERE ID = ${produtoAntigo}`,(error)=>{
+                if(error){
+                   reject(error);
+                }else{
+                   resolve("DELETADO COM SUCESSO!")
+                }
+            })
+    })
        }
        atualizarProdutoPeloID(parametros){
         return new Promise((resolve, reject) =>{
-            this.bd.run(`UPDATE PRODUTOS SET MARCA = ?, NOME = ? , INGREDIENTES = ?, QTD = ?, PRECO = ?, VALIDADE = ? WHERE id = ?`, parametros ,(error)=>{
+            this.bd.run(`UPDATE PRODUTOS SET NOME = ?, MARCA = ? , INGREDIENTES = ?, QTD = ?, PRECO = ?, VALIDADE = ? WHERE id = ?`, parametros ,(error)=>{
             if(error){
                 console.log(error)
                reject(error);
