@@ -1,16 +1,16 @@
-const express = require("express") 
-const app = express()
-const port = 3000
-
-const bd = require("./infra/bd.js")
-
-const cliente= require("./controllers/cliente-controller.js")
+const express = require("express") ;
+const app = express();
+const port = 3000;
 
 
+const cliente = require('./controllers/cliente-controller');
 
-app.use(express.json())
 
-cliente(app, bd)
+const bd = require('./infra/clientes-sqlite-db');
+
+app.use(express.json());
+
+cliente(app, bd);
 
 
 

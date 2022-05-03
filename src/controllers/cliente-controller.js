@@ -1,37 +1,69 @@
-const bd = require("../infra/bd")
+
 const Cliente = require("../models/cliente-model.js")
+const Clientedao = require('../DAO/cliente-DAO')
 
-const cliente = (app) => {
 
-    //CRUD - CREATE/READ/UPDATE/DELETE
+const cliente = (app,bd) => {
+    const DAOcliente = new Clientedao(bd)
+    //CRUD - CREATE/READ/UPDATE/DELETE 
 
     //INSERE REGISTROS (CREATE)
     app.post('/cliente', (req,res) => {
-
-    try{
-        const body = req.body
-        const novocliente = new Cliente(body.nome, body.email, body.senha)
-        bd.cliente.push(novocliente)
-        res.json({"Novo cliente Cadastrado": novocliente})
+       const body = req.body;
+       const ClienteDado= new Cliente (body.nome,body.idade,body.tel, body.email, body.senha,body.endereco,body.favorito)
+       const data = async () =>{
+        try{
+            const cliente = await DAOcliente.inserirCliente(ClienteDado)
+            res.send(cliente)
+        }catch(err){
+            res.send(err)
+        }
     }
-    catch (error){
-        res.json({"message": error.message})
-    }
+    data()
     })
 
     //LÊ REGISTROS (READ)
     app.get('/cliente', (req,res) => {
-        res.json(bd.cliente)
-    })
+        const data = async () =>{
+            try{
+                const cliente = await DAOcliente.ExbirClientes()
+                res.send(cliente)
+            }catch(err){
+                res.send(err)
+            }
+        }
+        data()
+         })
 
     //ALTERA REGISTROS (UPDATE)
-    app.put('/cliente', (req,res) => {
-        res.send("Olá, mundo! Aqui é rota de cliente PUT")
+    app.put('/cliente/:id', (req,res) => {
+        const body = req.body;
+        const id= req.params.id;
+        const parametros = [body.nome,body.idade,body.tel,body.email,body.senha,body.endereco,body.favorito,id]
+        const data = async()=>{
+            try{
+                const cliente = await DAOcliente.AlterarCliente(parametros)
+                res.send(cliente)
+            }catch(err){
+                res.send(err)
+            }
+        }
+        data();
     })
 
     //DELETA REGISTROS (DELETE)
-    app.delete('/cliente', (req,res) => {
-        res.send("Olá, mundo! Aqui é rota de usuário DELETE")
+    app.delete('/cliente/:id', (req,res) => {
+        const id =req.params.id
+        const data = async ()=>{
+            try{
+                const cliente= await DAOcliente.DeletarCliente(id)
+                res.send(cliente)
+            }catch(err){
+                res.send(err)
+            }
+        }
+        
+        data()
     })
 }
 
