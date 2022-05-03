@@ -160,11 +160,11 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Garduciz"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/94760419?s=100&v=4" width="100px;" alt=""/><br /><sub><b>Breno</b></sub></a><br /><a href="https://github.com/Garduciz" title="Github">👨‍🚀</a></td>
-    <td align="center"><a href="https://github.com/hugolegramandi"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/95043315?v=4" width="100px;" alt=""/><br /><sub><b>Hugo</b></sub></a><br /><a href="https://github.com/hugolegramandi" title="Github">👨‍🚀</a></td>
-    <td align="center"><a href="https://github.com/Lauracastro27r"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96209445?v=4" width="100px;" alt=""/><br /><sub><b>Laura</b></sub></a><br /><a href="https://github.com/Lauracastro27" title="Github">👨‍🚀</a></td>
-    <td align="center"><a href="https://github.com/Luana-Developer"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96445574?v=4" width="100px;" alt=""/><br /><sub><b>Luana</b></sub></a><br /><a href="https://github.com/Luana-Developer" title="Github">🚀</a></td>
-    <td align="center"><a href="https://github.com/Rafael753"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96213098?v=4" width="100px;" alt=""/><br /><sub><b>Rafael</b></sub></a><br /><a href="https://github.com/Rafael753" title="Github">🚀</a></td>
+    <td align="center"><a href="https://github.com/Garduciz"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/94760419?s=100&v=4" width="100px;" alt=""/><br /><sub><b>Breno</b></sub></a><br /><a href="https://github.com/Garduciz" title="Github"></a></td>
+    <td align="center"><a href="https://github.com/hugolegramandi"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/95043315?v=4" width="100px;" alt=""/><br /><sub><b>Hugo</b></sub></a><br /><a href="https://github.com/hugolegramandi" title="Github"></a></td>
+    <td align="center"><a href="https://github.com/Lauracastro27r"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96209445?v=4" width="100px;" alt=""/><br /><sub><b>Laura</b></sub></a><br /><a href="https://github.com/Lauracastro27" title="Github"></a></td>
+    <td align="center"><a href="https://github.com/Luana-Developer"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96445574?v=4" width="100px;" alt=""/><br /><sub><b>Luana</b></sub></a><br /><a href="https://github.com/Luana-Developer" title="Github"></a></td>
+    <td align="center"><a href="https://github.com/Rafael753"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96213098?v=4" width="100px;" alt=""/><br /><sub><b>Rafael</b></sub></a><br /><a href="https://github.com/Rafael753" title="Github"></a></td>
     
   </tr>
 
