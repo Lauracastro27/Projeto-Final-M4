@@ -1,25 +1,36 @@
-/*
-Esse arquivo deve ser executado apenas uma vez para que a o banco seja criado e populado
-*/
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./src/infra/database.db');
 
-
-//==== Usuários
-const USUARIOS_SCHEMA = `
-CREATE TABLE IF NOT EXISTS "USUARIOS" (
+// Produtos
+const PRODUTOS_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "PRODUTOS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
     "NOME" varchar(64),
-    "EMAIL" varchar(64),
-    "SENHA" varchar(64)
+    "MARCA" varchar(64),
+    "INGREDIENTES" varchar(64),
+    "QTD" varchar(64),
+    "PRECO" varchar(64),
+    "VALIDADE" varchar(64)
   );`;
 
-function criaTabelaUsr() {
-    db.run(USUARIOS_SCHEMA, (error)=> {
-       if (error) console.log("Erro ao criar tabela de usuários");
+  //Adicionar produtos na tabela
+  const ADD_PRODUTOS_DATA = `
+INSERT INTO PRODUTOS (ID, MARCA, NOME, INGREDIENTES, QTD, PRECO, VALIDADE)
+VALUES 
+`;
+function populaTabelaPrd() {
+    db.run(ADD_PRODUTOS_DATA, (error)=> {
+       if (error) console.log("Erro ao popular tabela de usuários");
+    });
+}
+
+function criaTabelaPrd() {
+    db.run(PRODUTOS_SCHEMA, (error)=> {
+       if (error) console.log("Erro ao criar tabela de produtos");
     });
 }
 
 db.serialize( ()=> {
-    criaTabelaUsr();
+    criaTabelaPrd();
+    populaTabelaPrd();
 });
