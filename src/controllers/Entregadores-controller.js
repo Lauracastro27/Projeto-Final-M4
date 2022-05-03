@@ -1,9 +1,8 @@
-const bd = require('../infra/Entregadorsqlite')
 const Entregadores = require('../models/entregadores-models')
 const EntregadoresDAO = require('../DAO/entregadores-DAO')
 
 
-const entregador = (app, bd) => {
+const entregadores = (app, bd) => {
 
     const instEntregadoresDAO = new EntregadoresDAO(bd)
 
@@ -58,4 +57,4 @@ const entregador = (app, bd) => {
 }
 
 
-module.exports = entregador
+module.exports = entregadores
