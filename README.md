@@ -39,35 +39,56 @@ Tabela de conteúdos
 ## ⚙️ Funcionalidades
 
 - [x] Qualquer ESTABELECIMENTO pode se cadastrar na plataforma enviando:
-  - [x] NOME
-  - [x] ENDEREÇO
-  - [x] AVALIAÇÃO
+
+     - ID
+     - NOME
+     - TELEFONE
+     - EMAIL
+     - SENHA
+     - ENDEREÇO
 
 - [x] Qualquer um pode cadastrar um PRODUTO na plataforma enviando:
-  - [x] NOME
-  - [x] INGREDIENTES
-
+    
+     - ID
+     - NOME
+     - MARCA
+     - INGREDIENTES
+     - QUANTIDADE
+     - PREÇO
+     - VALIDADE
 
 - [x] Qualquer CLIENTE pode se cadastrar na plataforma enviando:
-  - [x] NOME
-  - [x] EMAIL
 
+     - ID
+     - NOME
+     - IDADE
+     - TELEFONE
+     - EMAIL
+     - SENHA
+     - ENDEREÇO
+     - FAVORITOS
 
 - [x] Qualquer um pode cadastrar um PEDIDO na plataforma enviando:
-  - [x] NUMERO
-  - [x] PRODUTO
-  - [x] QUANTIDADE
-  - [x] VALOR
-  - [x] FORMA DE PAGAMENTO
-  - [x] TIPO DE ENTREGA
-  - [x] ENTREGADOR
-  - [x] ENDEREÇO DE ENTREGA
-  - [x] TEMPO
-
+  
+     - ID
+     - NOME (CLIENTE)
+     - NOME (ESTABELECIMENTO)
+     - NOME (PRODUTOS)
+     - NOME (ENTREGADOR)
+     - QUANTIDADE (PRODUTOS)
+     - PREÇO (PRODUTOS)
 
 - [x] Qualquer ENTREGADOR pode se cadastrar na plataforma enviando:
-  - [x] NOME
-  - [x] ENDEREÇO
+     
+     - ID
+     - NOME
+     - CPF
+     - TELEFONE
+     - IDADE
+     - LOCALIZAÇÃO
+     - EMAIL
+     - SENHA
+     - MEIO DE TRANSPORTE
 
 ---
 
