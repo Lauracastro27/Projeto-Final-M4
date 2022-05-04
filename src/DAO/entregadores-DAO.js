@@ -57,7 +57,7 @@ class EntregadoresDAO {
 
     deleteEntregadores(id) {
         return new Promise((resolve, reject) => {
-            this.bd.run(`DELETE FROM Entregadores WHERE ID = ${id}`, (error)=>{
+            this.bd.run(`DELETE FROM Entregadores WHERE ID = ${id}`, (error) => {
                 if (error) {
                     reject(error);
                 } else {

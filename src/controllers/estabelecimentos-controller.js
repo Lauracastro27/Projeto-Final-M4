@@ -39,7 +39,7 @@ const estabelecimentos = (app, bd) => {
     app.put('/estabelecimentos/:id', (req, res) => {
         const id = req.params.id;
         const body = req.body;
-        const parametros = [body.nome, body.email, body.senha, id]
+        const parametros = [body.nomeDono, body.CNPJ, body.nomeEstabelecimento, body.endereco, body.tipoDeComida, body.telefone, body.email, body.senha, body.cupom, id]
         const data = async () => {
             try {
                 const estabelecimentos = await DAOEstabelecimentos.AtualizarEstabelecimentos(parametros)

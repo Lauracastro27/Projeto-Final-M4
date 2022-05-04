@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./src/infra/database.db');
+const bd = new sqlite3.Database('./infra/database.bd');
 
 //======= Produtos
 const PRODUTOS_SCHEMA = `
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS "PRODUTOS" (
   );`
 
 function criaTabelaPrd() {
-    db.run(PRODUTOS_SCHEMA, (error) => {
+    bd.run(PRODUTOS_SCHEMA, (error) => {
         if (error) console.log("Erro ao criar tabela de produtos");
     });
 }
@@ -40,13 +40,13 @@ VALUES
 `;
 
 function criaTabelaCli() {
-    db.run(CLIENTES_SCHEMA, (error) => {
+    bd.run(CLIENTES_SCHEMA, (error) => {
         if (error) console.log("Erro ao criar tabela de Clientes");
     });
 }
 
 function populaTabelaCli() {
-    db.run(ADD_CLIENTES_DATA, (error) => {
+    bd.run(ADD_CLIENTES_DATA, (error) => {
         if (error) console.log("Erro ao popular tabela de Clientes");
     });
 }
@@ -73,13 +73,13 @@ VALUES
 `;
 
 function criaTabelaEnt() {
-    db.run(ENTREGADORES_SCHEMA, (error) => {
+    bd.run(ENTREGADORES_SCHEMA, (error) => {
         if (error) console.log("Erro ao criar tabela de Entregadores");
     });
 }
 
 function populaTabelaEnt() {
-    db.run(ADD_ENTREGADORES_DATA, (error) => {
+    bd.run(ADD_ENTREGADORES_DATA, (error) => {
         if (error) console.log("Erro ao popular tabela de Entregadores");
     });
 }
@@ -107,18 +107,18 @@ const ADD_ESTABELECIMENTOS_DATA = `INSERT INTO ESTABELECIMENTOS (ID, NOMEDONO, C
   `;
 
 function criaTabelaEtb() {
-    db.run(ESTABELECIMENTOS_SCHEMA, (error) => {
+    bd.run(ESTABELECIMENTOS_SCHEMA, (error) => {
         if (error) console.log("Erro ao criar tabela de estabelecimentos");
     });
 }
 
 function populaTabelaEtb() {
-    db.run(ADD_ESTABELECIMENTOS_DATA, (error) => {
+    bd.run(ADD_ESTABELECIMENTOS_DATA, (error) => {
         if (error) console.log("Erro ao popular tabela de estabelecimentos");
     });
 }
 
-/======= Pedidos
+//======= Pedidos
 const PEDIDOS_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "PEDIDOS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -131,18 +131,18 @@ CREATE TABLE IF NOT EXISTS "PEDIDOS" (
   );`
 
 function criaTabelaPdd() {
-    db.run(PRODUTOS_SCHEMA, (error) => {
+    bd.run(PRODUTOS_SCHEMA, (error) => {
         if (error) console.log("Erro ao criar tabela de pedidos");
     });
 }
 
-    db.serialize(() => {
-      criaTabelaPrd();
-      criaTabelaCli();
-      populaTabelaCli();
-      criaTabelaEnt();
-      populaTabelaEnt();
-      criaTabelaEtb();
-      populaTabelaEtb();
-      criaTabelaPdd();
-    });
+bd.serialize(() => {
+    criaTabelaPrd();
+    criaTabelaCli();
+    populaTabelaCli();
+    criaTabelaEnt();
+    populaTabelaEnt();
+    criaTabelaEtb();
+    populaTabelaEtb();
+    criaTabelaPdd();
+});

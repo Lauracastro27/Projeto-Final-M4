@@ -18,8 +18,7 @@ class ProdutosDAO {
     inserirNovoProduto(novoProduto) {
         return new Promise((resolve, reject) => {
             this.bd.run(`INSERT INTO PRODUTOS (NOME, MARCA, INGREDIENTES, QTD, PRECO, VALIDADE) VALUES (?,?,?,?,?,?)`,
-                [novoProduto.marca, novoProduto.nome, novoProduto.qtd, novoProduto.preco,
-                novoProduto.ingredientes, novoProduto.validade],
+                [novoProduto.nome, novoProduto.marca, novoProduto.ingredientes, novoProduto.qtd, novoProduto.preco, novoProduto.ingredientes, novoProduto.validade],
                 (error) => {
                     if (error) {
                         reject(error)

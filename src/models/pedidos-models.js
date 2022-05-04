@@ -1,4 +1,4 @@
-class Produtos {
+class Pedidos {
     constructor(nomeCliente, nomeEstabelecimento, nomeProduto, nomeEntregador, qtd, preco) {
 
         this.nomeCliente = nomeCliente;

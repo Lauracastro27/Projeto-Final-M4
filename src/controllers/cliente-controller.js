@@ -1,4 +1,4 @@
-const Cliente = require("../models/cliente-model.js")
+const Cliente = require("../models/cliente-model")
 const Clientedao = require('../DAO/cliente-DAO')
 
 

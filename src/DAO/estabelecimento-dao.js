@@ -9,7 +9,7 @@ class EstabelecimentosDAO {
                     if (error) {
                         reject(error);
                     } else {
-                        resolve("NOVO ESTABELECIMENTOS CADASTRADOS COM SUCESSO!!")
+                        resolve("NOVO ESTABELECIMENTO CADASTRADO COM SUCESSO!!")
                     }
                 })
         })
@@ -27,12 +27,12 @@ class EstabelecimentosDAO {
     }
     AtualizarEstabelecimentos(parametros) {
         return new Promise((resolve, reject) => {
-            this.bd.run(`UPDATE ESTABELECIMENTOS SET NOME = ?, EMAIL = ?, SENHA = ? WHERE ID = ?`, parametros, (error) => {
+            this.bd.run(`UPDATE ESTABELECIMENTOS SET NOMEDONO = ?, CNPJ = ?, NOMEESTABELECIMENTO = ?, ENDEREÇO = ?, TIPODECOMIDA = ?, TELEFONE = ?, EMAIL = ?, SENHA = ?, CUPOM = ? WHERE ID = ?`, parametros, (error) => {
                 if (error) {
                     reject(error)
                 }
                 else {
-                    resolve("ESTABELECIMENTOS ATUALIZADOS COM SUCESSO")
+                    resolve("ESTABELECIMENTO ATUALIZADO COM SUCESSO")
                 }
             })
         })
@@ -44,7 +44,7 @@ class EstabelecimentosDAO {
                     reject(error)
                 }
                 else {
-                    resolve("ESTABELECIMENTOS DELETADOS COM SUCESSO")
+                    resolve("ESTABELECIMENTO DELETADO COM SUCESSO")
                 }
             })
         })

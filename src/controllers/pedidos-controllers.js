@@ -40,7 +40,7 @@ const pedidos = (app, bd) => {
         const body = req.body;
         const id = req.params.id
         const parametros = [body.nomeCliente, body.nomeEstabelecimento, body.nomeProduto,
-            body.nomeEntregador, body.qtd, body.preco, id]
+        body.nomeEntregador, body.qtd, body.preco, id]
         const data = async () => {
             try {
                 const pedidos = await InstPedidoDAO.atualizarPedidoPeloID(parametros)

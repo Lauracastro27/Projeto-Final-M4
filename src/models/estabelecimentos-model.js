@@ -23,11 +23,9 @@ class Estabelecimentos {
         if (cupom === 'sim' || cupom === 'não') {
             return cupom
         } else {
-           throw new Error("Status de Cupom deve ser sim ou não")
-                }
+            throw new Error("Status de Cupom deve ser sim ou não")
+        }
     }
 
 }
-
-
-module.exports = Estabelecimentos 
+module.exports = Estabelecimentos;

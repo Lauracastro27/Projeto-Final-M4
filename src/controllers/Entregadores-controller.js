@@ -46,15 +46,15 @@ const entregadores = (app, bd) => {
         }
     })
 
-     app.delete('/entregadores/:id', async (req, res) => {
-         try {
-             const entregador = await instEntregadoresDAO.deleteEntregadores(req.params.id)
-             res.send(entregador)
-         } catch (error) {
-             res.send(error)
+    app.delete('/entregadores/:id', async (req, res) => {
+        try {
+            const entregador = await instEntregadoresDAO.deleteEntregadores(req.params.id)
+            res.send(entregador)
+        } catch (error) {
+            res.send(error)
         }
-      })
+    })
 }
 
 
-module.exports = entregadores
+module.exports = entregadores;
