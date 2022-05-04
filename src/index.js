@@ -2,9 +2,8 @@ const express = require("express")
 const sqlite3 = require("sqlite3") 
 const app = express()
 const bd = require('./infra/sqlite-db')
-const port = 3000
+const port = process.ev.PORT || 3000
 
-//const bd = require("./infra/bd.js")
 //Importa os controllers
 const produtos = require("./controllers/produtos-controllers")
 const cliente = require('./controllers/cliente-controller');
