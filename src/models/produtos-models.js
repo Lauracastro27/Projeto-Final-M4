@@ -1,8 +1,6 @@
+class Produtos {
+    constructor(marca, nome, qtd, preco, ingredientes, validade) {
 
-
-class Produtos{
-    constructor(marca, nome, qtd, preco, ingredientes, validade){
-        
         this.nome = nome;
         this.marca = marca;
         this.ingredientes = ingredientes;
@@ -10,6 +8,5 @@ class Produtos{
         this.preco = preco;
         this.validade = validade;
     }
-
 }
 module.exports = Produtos;

@@ -1,6 +1,6 @@
 
 <h1 align="center">
-     🍕 <a href="#" alt="site do ecoleta"> API TôComFome </a>
+     🍕 <a href="#" alt="site do ecoleta">TôComFome API</a>
 </h1>
 
 <h3 align="center">
@@ -8,7 +8,7 @@
 Requisições de todas as etapas de um aplicativo de delivery 💛
 </h3>
 
-<h4 align="center">🚧 Em andamento 🚧</h4>
+<h4 align="center">✅ Concluído ✅</h4>
 
 <p align="center">
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/Lauracastro27/Projeto-Final-M4?style=for-the-badge">
@@ -39,35 +39,56 @@ Tabela de conteúdos
 ## ⚙️ Funcionalidades
 
 - [x] Qualquer ESTABELECIMENTO pode se cadastrar na plataforma enviando:
-  - [x] NOME
-  - [x] ENDEREÇO
-  - [x] AVALIAÇÃO
+
+     - ID
+     - NOME
+     - TELEFONE
+     - EMAIL
+     - SENHA
+     - ENDEREÇO
 
 - [x] Qualquer um pode cadastrar um PRODUTO na plataforma enviando:
-  - [x] NOME
-  - [x] INGREDIENTES
-
+    
+     - ID
+     - NOME
+     - MARCA
+     - INGREDIENTES
+     - QUANTIDADE
+     - PREÇO
+     - VALIDADE
 
 - [x] Qualquer CLIENTE pode se cadastrar na plataforma enviando:
-  - [x] NOME
-  - [x] EMAIL
 
+     - ID
+     - NOME
+     - IDADE
+     - TELEFONE
+     - EMAIL
+     - SENHA
+     - ENDEREÇO
+     - FAVORITOS
 
 - [x] Qualquer um pode cadastrar um PEDIDO na plataforma enviando:
-  - [x] NUMERO
-  - [x] PRODUTO
-  - [x] QUANTIDADE
-  - [x] VALOR
-  - [x] FORMA DE PAGAMENTO
-  - [x] TIPO DE ENTREGA
-  - [x] ENTREGADOR
-  - [x] ENDEREÇO DE ENTREGA
-  - [x] TEMPO
-
+  
+     - ID
+     - NOME (CLIENTE)
+     - NOME (ESTABELECIMENTO)
+     - NOME (PRODUTOS)
+     - NOME (ENTREGADOR)
+     - QUANTIDADE (PRODUTOS)
+     - PREÇO (PRODUTOS)
 
 - [x] Qualquer ENTREGADOR pode se cadastrar na plataforma enviando:
-  - [x] NOME
-  - [x] ENDEREÇO
+     
+     - ID
+     - NOME
+     - CPF
+     - TELEFONE
+     - IDADE
+     - LOCALIZAÇÃO
+     - EMAIL
+     - SENHA
+     - MEIO DE TRANSPORTE
 
 ---
 
@@ -96,42 +117,19 @@ $ cd
 $ cd server
 
 # Instale as dependências
-$ npm install
+$ npm install nodemon
+$ npm install express
+$ npm install sqlite3
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev:server
 
-# O servidor inciará na porta:3333 - acesse http://localhost:3333 
+# O servidor inciará na porta:3000 - acesse http://localhost:3000 
 
 ```
 <p align="center">
   <a href="" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
-
-
-#### 🧭 Rodando a aplicação web (Frontend)
-
-```bash
-
-# Clone este repositório
-$ git clone 
-
-# Acesse a pasta do projeto no seu terminal/cmd
-$ cd 
-
-# Vá para a pasta da aplicação Front End
-$ cd web
-
-# Instale as dependências
-$ npm install
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run start
-
-# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
-
-```
----
 
 ## 🛠 Tecnologias
 
@@ -149,7 +147,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 #### [](https://github.com/Lauracastro27/Projeto-Final-M4)**Utilitários**
 
 -   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**  → Extensions:  **[SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)**
--   Markdown:  **[StackEdit](https://stackedit.io/)**,  **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
 -   Teste de API:  **[Insomnia](https://insomnia.rest/)**
 
 ---
