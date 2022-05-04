@@ -9,16 +9,16 @@ const produtos = require("./controllers/produtos-controllers")
 const cliente = require('./controllers/cliente-controller');
 const entregadores = require('./controllers/Entregadores-controller')
 const estabelecimentos = require(`./controllers/estabelecimentos-controller`)
-
-
-const bd = require('./infra/clientes-sqlite-db');
+const pedidos = require("./controllers/pedidos-controllers")
 
 app.use(express.json());
 
 cliente(app, bd);
 produtos(app, bd);
 entregadores(app, bd);
-estabelecimento(app, bd)
+estabelecimentos(app, bd)
+pedidos(app, bd)
+
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)

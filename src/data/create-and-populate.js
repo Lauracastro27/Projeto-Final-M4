@@ -118,12 +118,31 @@ function populaTabelaEtb() {
     });
 }
 
+/======= Pedidos
+const PEDIDOS_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "PEDIDOS" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "NOME_CLIENTE" varchar(64),
+    "NOME_ESTABELECIMENTO" varchar(64),
+    "NOME_PRODUTO" varchar(64),
+    "NOME_ENTREGADOR" varchar(64),
+    "QTD" varchar(64),
+    "PRECO" varchar(64)
+  );`
+
+function criaTabelaPdd() {
+    db.run(PRODUTOS_SCHEMA, (error) => {
+        if (error) console.log("Erro ao criar tabela de pedidos");
+    });
+}
+
     db.serialize(() => {
       criaTabelaPrd();
       criaTabelaCli();
       populaTabelaCli();
       criaTabelaEnt();
       populaTabelaEnt();
-      criaTabelaEtb()
-      populaTabelaEtb()
+      criaTabelaEtb();
+      populaTabelaEtb();
+      criaTabelaPdd();
     });
