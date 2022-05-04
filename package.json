@@ -19,7 +19,10 @@
   "homepage": "https://github.com/Lauracastro27/Projeto-Final-M4#readme",
   "dependencies": {
     "express": "^4.18.0",
-    "nodemon": "^2.0.15",
+    "cors": "^2.8.5",
     "sqlite3": "^5.0.6"
+  },
+  "devDependencies": {
+  "nodemon": "^2.0.16"
   }
 }
