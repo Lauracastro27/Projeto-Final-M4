@@ -1,5 +1,5 @@
 const Estabelecimentos = require("../models/estabelecimentos-model")
-const EstabelecimentosDAO = require("../models/estabelecimento-dao")
+const EstabelecimentosDAO = require("../Dao/estabelecimento-dao")
 
 //CRUD - CREATE/READ/UPDATE/DELETE
 const estabelecimentos = (app, bd) => {

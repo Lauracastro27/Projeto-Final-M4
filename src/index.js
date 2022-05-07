@@ -3,7 +3,7 @@ const sqlite3 = require("sqlite3")
 const app = express()
 const bd = require('./infra/sqlite-db')
 const cors = require('cors')
-const port = process.ev.PORT || 3000
+const port = 3000
 
 app.use(express.json());
 app.use(cors());
